@@ -8,7 +8,7 @@ jobs:
           name: Building Mystic Kernel
           command: |
             wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doStart.sh
-            bash doStart.sh beta gcc
+            bash doStart.sh stable gcc
             cd kernel
             wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doBuild_dtb.sh
             bash doBuild_dtb.sh a26x gcc qpnp
