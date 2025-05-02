@@ -7,15 +7,15 @@ jobs:
       - run:
           name: Building Mystic Kernel
           command: |
-            wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doStart.sh
+            wget https://raw.githubusercontent.com/AKPR2007/kbuild-scripts/main/build-ci/kernel-4.4/doStart.sh
             bash doStart.sh stable gcc
             cd kernel
-            wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doBuild_dtb.sh
+            wget https://raw.githubusercontent.com/AKPR2007/kbuild-scripts/main/build-ci/kernel-4.4/doBuild_dtb.sh
             bash doBuild_dtb.sh tulip gcc qpnp
             git apply qti.patch
             bash doBuild_dtb.sh tulip gcc qti
             git restore .
-            wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doBuild.sh
+            wget https://raw.githubusercontent.com/AKPR2007/kbuild-scripts/main/build-ci/kernel-4.4/doBuild.sh
             bash doBuild.sh tulip newcam gcc
             bash doBuild.sh tulip oldcam gcc
             git apply oc.patch
@@ -25,5 +25,5 @@ jobs:
             git restore .
             bash doBuild.sh tulip newcam oc gcc
             bash doBuild.sh tulip oldcam oc gcc
-            wget https://raw.githubusercontent.com/okta-10/scripts/main/build-ci/kernel-4.4/doFinal.sh
+            wget https://raw.githubusercontent.com/AKPR2007/kbuild-scripts/main/build-ci/kernel-4.4/doFinal.sh
             bash doFinal.sh gcc
