@@ -10,19 +10,18 @@ jobs:
             wget https://raw.githubusercontent.com/AKPR2007/kbuild-scripts/main/build-ci/kernel-4.4/doStart.sh
             bash doStart.sh stable gcc
             cd kernel
+            curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash - && curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next-susfs/kernel/setup.sh" | bash -s next-susfs
             wget https://raw.githubusercontent.com/AKPR2007/kbuild-scripts/main/build-ci/kernel-4.4/doBuild_dtb.sh
             bash doBuild_dtb.sh tulip gcc qpnp
-            git apply qti.patch
-            bash doBuild_dtb.sh tulip gcc qti
-            git restore .
+            git apply qti.patch && bash doBuild_dtb.sh tulip gcc qti && git restore .
+            curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash - && curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next-susfs/kernel/setup.sh" | bash -s next-susfs
             wget https://raw.githubusercontent.com/AKPR2007/kbuild-scripts/main/build-ci/kernel-4.4/doBuild.sh
             bash doBuild.sh tulip newcam gcc
             bash doBuild.sh tulip oldcam gcc
             git apply oc.patch
             bash doBuild_dtb.sh tulip gcc qpnp
-            git apply qti.patch
-            bash doBuild_dtb.sh tulip gcc qti
-            git restore .
+            git apply qti.patch && bash doBuild_dtb.sh tulip gcc qti && git restore .
+            curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash - && curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next-susfs/kernel/setup.sh" | bash -s next-susfs
             bash doBuild.sh tulip newcam oc gcc
             bash doBuild.sh tulip oldcam oc gcc
             wget https://raw.githubusercontent.com/AKPR2007/kbuild-scripts/main/build-ci/kernel-4.4/doFinal.sh
